@@ -19,11 +19,29 @@
 </head>
 <body>
 {% include "navbar.html" %}
-<hr>
+{% if messages %}
+
+        {% for message in messages %}
+        {% if message.error %}
+          <div class="alert alert--error">
+            <p class="alert__message">{{ message }}</p>
+            <button class="alert__close">⨯</button>
+          </div>
+        {% else %}
+              <div class="alert alert--success">
+            <p class="alert__message">{{ message }}</p>
+            <button class="alert__close">⨯</button>
+          </div>
+
+        {% endif %}
+
+        {% endfor %}
+        </ul>
+    {% endif %}
 {% block content %}
 
 {% endblock %}
-
+<script src="{% static 'uikit/app.js'%}"> </script>
 {% include "footer.html" %}
 </body>
 </html>

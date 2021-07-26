@@ -18,6 +18,7 @@ def project(request, pk):
     context = {"project":projecObj}
     return render(request,"projects/project.html", context)
 
+
 @login_required(login_url="login")
 def create_project(request):
     form = ProjectForm()
@@ -28,6 +29,7 @@ def create_project(request):
             return redirect("projects")
     context = {"form":form}
     return render(request, "projects/project_form.html", context)
+
 
 @login_required(login_url="login")
 def update_project(request,pk):
@@ -40,6 +42,7 @@ def update_project(request,pk):
             return redirect("projects")
     context = {"form":form}
     return render(request, "projects/project_form.html", context)
+
 
 @login_required(login_url="login")
 def delete_project(request,pk):
